@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-gem "jeweler"
 gem "rake"
 
 group :test do
