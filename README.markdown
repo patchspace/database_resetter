@@ -1,5 +1,12 @@
 # database\_resetter
 
+Note: I used to use darcs as the source control tool for this project.
+I decided to move to git as other people will find it easier to collaborate
+on GitHub. As it was small enough, I decided to manually port it on a
+one-git-commit-per-darcs-patch basis. So (in case you looked at the commit
+history), no – I didn't write the entire thing in 20 minutes. (How I wish
+I could code that fast.)
+
 ## Introduction
 
 ### What does it do?
@@ -50,7 +57,7 @@ If you're working on a Rails app, and your tests are good to go after a
 will get executed once per test run:
 
     DatabaseResetter.new.reset_if_required
-    
+
 Note: there are no features to prove this default call actually works :)  I've
 always specified the options explicitly myself.  But the defaults should work with
 Rails.  If not, let me know.
@@ -75,9 +82,9 @@ To override the default command, specify the `:command_pattern` option:
     DatabaseResetter.new(
       :command_pattern => "rake db:rebuild RAILS_ENV=%ENV%"
     ).reset_if_required
-    
+
 See below for a description of `%ENV%`.
-    
+
 ### Using a different framework
 
 If you use a different web framework, you may have to specify a different
@@ -98,7 +105,7 @@ You may also need to specify a different migration file directory to watch, eg:
 
 (You can, of course, combine all three.)
 
-### RSpec 
+### RSpec
 
 Put the call to `DatabaseResetter#reset_if_required` in _spec/spec\_helper.rb_.
 
@@ -127,14 +134,14 @@ eyes, eg in Rails:
 
     Spork.each_run do
       # ...
-      
+
       ActiveRecord::Base.establish_connection(config.merge('database' => 'postgres', 'schema_search_path' => 'public'))
       DatabaseResetter.new.reset_if_required
       ActiveRecord::Base.establish_connection(config)
-      
+
       # ...
     end
-    
+
 If you're not using Spork, you still need to make sure you call
 `DatabaseResetter#reset_if_required` before connecting to the database.
 One way of doing this with Bundler is to define a Bundler group just
@@ -144,18 +151,18 @@ for database\_resetter in your Gemfile:
       gem "database_resetter"
     end
 
-And then use this to load and run database\_resetter before anything connects 
+And then use this to load and run database\_resetter before anything connects
 to the database.  eg with Rails and Cucumber, in _env.rb_:
 
     # ...
-    
+
     require 'bundler'
     Bundler.setup(:database_resetter)
     require 'database_resetter'
     DatabaseResetter.new.reset_if_required
 
     require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
-    
+
     # ...
 
 
