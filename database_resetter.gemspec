@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "Gemfile",
+    "Gemfile.lock",
     "HISTORY.markdown",
     "LICENCE.markdown",
     "README.markdown",
@@ -23,6 +24,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "config/cucumber.yml",
     "database_resetter.gemspec",
+    "database_resetter.sublime-project",
     "features/descriptions/change_environment.feature",
     "features/descriptions/database_resetter.feature",
     "features/descriptions/different_web_frameworks.feature",
