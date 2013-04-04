@@ -1,16 +1,15 @@
-require "bundler"
-Bundler.setup(:default)
+require 'jeweler'
 
-require "jeweler"
+Jeweler::Tasks.new do |gem|
+  gem.name = "database_resetter"
+  gem.summary = "Automatically resets your database when migrations change"
+  gem.email = "ash.moran@patchspace.co.uk"
+  gem.homepage = "https://github.com/patchspace/database_resetter"
+  gem.authors = ["Ash Moran"]
 
-Jeweler::Tasks.new do |gemspec|
-  gemspec.name = "database_resetter"
-  gemspec.summary = "Automatically resets your database when migrations change"
-  gemspec.email = "ashley.moran@patchspace.co.uk"
-  gemspec.homepage = "https://patch-tag.com/repo/ashleymoran/database_resetter/"
-  gemspec.authors = ["Ashley Moran"]
-  
-  gemspec.files.include %w[
+  # Why can't we do `gem.files.include` here???
+
+  gem.files.concat %w[
     config/**/*
     lib/**/*
     *.markdown
@@ -18,10 +17,10 @@ Jeweler::Tasks.new do |gemspec|
     Rakefile
     VERSION
   ]
-  gemspec.test_files.include %w[
-    features/**/*
-    spec/**/*
-  ]
+  gem.test_files.concat Dir.glob(
+    %w[
+      features/**/*
+      spec/**/*
+    ]
+  )
 end
-
-Jeweler::GemcutterTasks.new

@@ -1,11 +1,11 @@
 require 'time'
 
 class DatabaseResetter
-  def initialize(options)
+  def initialize(options = { })
     # NOTE There are no features/specs to prove the defaults are present
-    @environment = options[:environment] || ENV["RAILS_ENV"]
-    @command_pattern = options[:command_pattern] || "rake db:reset RAILS_ENV=%ENV%"
-    @files_to_watch = "#{options[:migration_directory] || "db/migrate"}/**/*.rb"
+    @environment      = options.fetch(:environment, ENV["RAILS_ENV"])
+    @command_pattern  = options.fetch(:command_pattern, "rake db:reset RAILS_ENV=%ENV%")
+    @files_to_watch   = "#{options.fetch(:migration_directory, "db/migrate")}/**/*.rb"
   end
 
   def reset_if_required

@@ -1,6 +1,3 @@
-require "bundler"
-Bundler.require(:default, :test)
-
 puts
 puts "*** Installing database_resetter gem"
 system "rake install"

@@ -8,12 +8,11 @@ Feature: No migrations
   Scenario: No migrations directory
     Given an empty project called "empty-project"
     When I run a test case
-    Then I should see "No migrations"
-  
+    Then the output should contain "No migrations"
+
   Scenario: No migrations in migration directory
     Given an empty project called "empty-project"
     And an empty Rails migration directory
     When I run a test case
-    Then I should see "No migrations"
+    Then the output should contain "No migrations"
 
-  
