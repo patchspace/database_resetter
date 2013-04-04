@@ -1,4 +1,5 @@
 require 'jeweler'
+require 'jeweler/rubygems_tasks'
 
 Jeweler::Tasks.new do |gem|
   gem.name = "database_resetter"
@@ -24,3 +25,5 @@ Jeweler::Tasks.new do |gem|
     ]
   )
 end
+
+Jeweler::RubygemsDotOrgTasks.new

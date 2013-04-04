@@ -10,5 +10,5 @@ group :development do
   gem "rake"
   gem "ap"
   gem "pry"
-  gem "jeweler"
+  gem "jeweler", git: "https://github.com/emilsoman/jeweler.git", branch: "rubygems-2.0.0-compatibility"
 end
