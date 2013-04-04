@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/emilsoman/jeweler.git
+  revision: 109c92d67baf5f55a627588a2cc16db171888ae5
+  branch: rubygems-2.0.0-compatibility
+  specs:
+    jeweler (1.8.4)
+      bundler (~> 1.0)
+      git (>= 1.2.5)
+      rake
+      rdoc
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -24,11 +35,6 @@ GEM
     httparty (0.10.2)
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
-    jeweler (1.8.4)
-      bundler (~> 1.0)
-      git (>= 1.2.5)
-      rake
-      rdoc
     json (1.7.7)
     method_source (0.8.1)
     multi_json (1.7.2)
@@ -57,7 +63,7 @@ DEPENDENCIES
   ap
   aruba
   cucumber
-  jeweler
+  jeweler!
   pry
   rake
   rspec
