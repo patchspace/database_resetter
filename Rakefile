@@ -25,3 +25,5 @@ Jeweler::Tasks.new do |gem|
     ]
   )
 end
+
+Jeweler::RubygemsDotOrgTasks.new
